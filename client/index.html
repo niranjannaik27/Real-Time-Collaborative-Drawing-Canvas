@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-Time Collaborative Canvas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Real-Time Collaborative Canvas</h1>
+    </header>
+
+    <div class="toolbar">
+      <div class="tool-group">
+        <label for="color-picker">Color:</label>
+        <input type="color" id="color-picker" value="#000000">
+      </div>
+
+      <div class="tool-group">
+        <label for="stroke-width">Width:</label>
+        <input type="range" id="stroke-width" min="1" max="20" value="3">
+        <span id="width-display">3</span>
+      </div>
+
+      <div class="tool-group">
+        <button id="btn-brush" class="tool-btn active">Brush</button>
+        <button id="btn-eraser" class="tool-btn">Eraser</button>
+      </div>
+
+      <div class="tool-group">
+        <button id="btn-undo" class="action-btn">Undo</button>
+        <button id="btn-redo" class="action-btn">Redo</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="canvas-wrapper">
+        <canvas id="canvas-main" width="1200" height="700"></canvas>
+        <canvas id="canvas-temp" width="1200" height="700"></canvas>
+        <canvas id="canvas-ui" width="1200" height="700"></canvas>
+      </div>
+
+      <div class="sidebar">
+        <h3>Users Online</h3>
+        <div id="user-list"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
